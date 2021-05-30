@@ -4,29 +4,30 @@ class ImageList extends React.Component{
     constructor(props){
         super(props)
         this.loadCount = 0;
-        this.state = {images : [],view:'grid',inputValue:""}
+        this.state = {images : [],view:props.view,inputValue:""}
+        this.sIR = props.searchInputRef;
     }
-    addLoadCount(){
+    addLoadCount=()=>{
         this.loadCount += 1;
-        if(this.loadCount === this.props.images.length){
-            // change the state of the search input component
+        if(this.loadCount === this.state.images.length){
             this.props.searchInputRef.current.setState({loading:'category'})
         }
     }
-    updateProps(){
-        if(this.state.images.length===0){
-            this.props.searchInputRef.current.setState({loading:'category'})
+    shouldComponentUpdate(nextProps, nextState){
+        if(nextState.images.length===0){
+            nextProps.searchInputRef.current.setState({loading:'category'});
         }
+        return true;
     }
     render(){
-        //this.updateProps();
+        //console.log(this.props)
         this.loadCount=0; // update load count once it is rendered (rendered only once on each submit)
         const img = this.state.images.map((image)=>{
             if (this.state.view ==='grid'){
             return (
                 <div className="eight wide column" key = {image.id}>
                 <div className = "ui fluid card" >
-                <ImageComponent imageListRef= {this} source={image.largeImageURL} width={image.previewWidth} height={image.previewHeight}/>
+                <ImageComponent addLoadCount= {this.addLoadCount} source={image.largeImageURL} width={image.previewWidth} height={image.previewHeight}/>
                 </div>
                 </div>
             )}
@@ -34,7 +35,7 @@ class ImageList extends React.Component{
                 return (
                     <div className="item" key={image.id}>
                         <div className="ui fluid card">
-                            <ImageComponent source={image.largeImageURL} width={image.previewWidth} height={image.previewHeight}/>
+                            <ImageComponent addLoadCount={this.addLoadCount} source={image.largeImageURL} width={image.previewWidth} height={image.previewHeight}/>
                             <div className="content">
                                 <div className="header">{image.user}</div>
                             <div className="meta">
@@ -58,7 +59,7 @@ class ImageList extends React.Component{
             )}
             else{
                 return(
-                    <div class="ui divided items">
+                    <div className="ui divided items">
                         {img}
                     </div>
                 )

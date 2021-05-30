@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React from 'react';
 class ImageComponent extends React.Component{
     constructor(props){
@@ -6,6 +5,7 @@ class ImageComponent extends React.Component{
         this.state = {loaded : false}
     }
     render(){
+        //console.log(this.props)
         return(
             <div>
                 <div className="ui placeholder" style={this.state.loaded ? {display:'none'}: {}}>
@@ -16,7 +16,7 @@ class ImageComponent extends React.Component{
                     style = {this.state.loaded ? {} : {display:'none'}}
                     onLoad = {()=>{
                         this.setState({loaded:true});
-                        this.props.imageListRef.addLoadCount();
+                        this.props.addLoadCount();
                     
                 }}
                     className="ui fluid image"
