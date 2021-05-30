@@ -3,7 +3,7 @@ import SearchInput from './SearchInput.js';
 import axios from 'axios';
 import ImageList from './ImageList.js';
 import ButtonComponent from './ButtonsComponent.js';
-
+import PageButtonComponent from './PageButtonComponent.js'
 class App extends React.Component{
     constructor(props){
         super(props)
@@ -33,6 +33,7 @@ class App extends React.Component{
             <div  className="ui huge header" style={{marginLeft:'auto',marginRight:'auto'}}>Image Search</div>
             <SearchInput ref={this.searchInputRef}  onSearchSubmit={this.onSearchSubmit} inputValue = {this.state.inputValue} loading='category'/>
             <ButtonComponent onGridClick={this.onGridClick} onListClick={this.onListClick} ref={this.buttonComponentRef} defaultButton='grid'/>
+            <PageButtonComponent buttonTexts={[1,2,3,4,5,6]} clickedButtonIndex={0} />
             <ImageList ref={this.imageListRef} searchInputRef={this.searchInputRef}   images={this.state.images} inputValue={this.state.inputValue} view = {this.state.view}/>
         </div>
     )

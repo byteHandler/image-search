@@ -25,7 +25,7 @@ class ImageList extends React.Component{
     render(){
         //console.log(this.props)
         this.loadCount=0; // update load count once it is rendered (rendered only once on each submit)
-        const img = this.state.images.map((image)=>{
+        const img = this.state.images.map((image)=>{   
             if (this.state.view ==='grid'){
             return (
                 <div className="eight wide column" key = {image.id}>
