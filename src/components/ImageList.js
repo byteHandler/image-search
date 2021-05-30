@@ -13,7 +13,13 @@ class ImageList extends React.Component{
             this.props.searchInputRef.current.setState({loading:'category'})
         }
     }
+    updateProps(){
+        if(this.state.images.length===0){
+            this.props.searchInputRef.current.setState({loading:'category'})
+        }
+    }
     render(){
+        //this.updateProps();
         this.loadCount=0; // update load count once it is rendered (rendered only once on each submit)
         const img = this.state.images.map((image)=>{
             if (this.state.view ==='grid'){
