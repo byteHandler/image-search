@@ -13,9 +13,7 @@ const ImageList = (props)=>{
         else{
             return (
                 <div className="item" key={image.id}>
-                    <div className="ui image" style={{marginLeft:"2px",float:"right"}}>
-                        <img src={image.previewURL} alt="image"/>
-                    </div>
+                    <ImageComponent source={image.largeImageURL} width={image.previewWidth} height={image.previewHeight}/>
                     <div className="content">
                         <div className="header">{image.user}</div>
                     <div className="meta">
