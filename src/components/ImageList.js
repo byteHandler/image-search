@@ -19,6 +19,9 @@ class ImageList extends React.Component{
         }
         return true;
     }
+    downloadFile = (link) => {
+        window.location.href = link;
+      }
     render(){
         //console.log(this.props)
         this.loadCount=0; // update load count once it is rendered (rendered only once on each submit)
@@ -38,12 +41,15 @@ class ImageList extends React.Component{
                             <ImageComponent addLoadCount={this.addLoadCount} source={image.largeImageURL} width={image.previewWidth} height={image.previewHeight}/>
                             <div className="content">
                                 <div className="header">{image.user}</div>
-                            <div className="meta">
-                                <i className="thumbs up outline icon"/> {image.likes} <br></br>
-                                <i className="arrow alternate circle down outline icon"></i> {image.downloads} <br></br>
-                            </div>
-                            <div className="description">
-                            </div>
+                                <div className="meta">
+                                    <i className="thumbs up outline icon"/> {image.likes} <br></br>
+                                    <i className="arrow alternate circle down outline icon"></i> {image.downloads} <br></br>
+                                    <button onClick={()=>window.location.href=image.largeImageURL} style={{marginTop:'3px'}} className="ui primary basic button">
+                                        Download
+                                    </button>
+                                </div>
+                                <div className="description">
+                                </div>
                             </div>
                         </div>
                     </div>
