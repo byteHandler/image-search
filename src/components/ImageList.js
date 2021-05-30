@@ -13,15 +13,17 @@ const ImageList = (props)=>{
         else{
             return (
                 <div className="item" key={image.id}>
-                    <ImageComponent source={image.largeImageURL} width={image.previewWidth} height={image.previewHeight}/>
-                    <div className="content">
-                        <div className="header">{image.user}</div>
-                    <div className="meta">
-                        <i className="thumbs up outline icon"/> {image.likes} <br></br>
-                        <i className="arrow alternate circle down outline icon"></i> {image.downloads} <br></br>
-                    </div>
-                    <div className="description">
-                    </div>
+                    <div className="ui fluid card">
+                        <ImageComponent source={image.largeImageURL} width={image.previewWidth} height={image.previewHeight}/>
+                        <div className="content">
+                            <div className="header">{image.user}</div>
+                        <div className="meta">
+                            <i className="thumbs up outline icon"/> {image.likes} <br></br>
+                            <i className="arrow alternate circle down outline icon"></i> {image.downloads} <br></br>
+                        </div>
+                        <div className="description">
+                        </div>
+                        </div>
                     </div>
                 </div>
             )
