@@ -16,7 +16,7 @@ class PageButtonComponent extends React.Component{
             )
         })
         return(
-            <div class="ui icon buttons">
+            <div class="ui icon buttons"style={{marginBottom:"5px"}}>
                 {buttons}
             </div>
         )

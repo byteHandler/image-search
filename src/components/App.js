@@ -34,7 +34,7 @@ class App extends React.Component{
             <SearchInput ref={this.searchInputRef}  onSearchSubmit={this.onSearchSubmit} inputValue = {this.state.inputValue} loading='category'/>
             <ButtonComponent onGridClick={this.onGridClick} onListClick={this.onListClick} ref={this.buttonComponentRef} defaultButton='grid'/>
             <PageButtonComponent buttonTexts={[1,2,3,4,5,6]} clickedButtonIndex={0} />
-            <ImageList style={{marginTop:'4px'}}ref={this.imageListRef} searchInputRef={this.searchInputRef}   images={this.state.images} inputValue={this.state.inputValue} view = {this.state.view}/>
+            <ImageList ref={this.imageListRef} searchInputRef={this.searchInputRef}   images={this.state.images} inputValue={this.state.inputValue} view = {this.state.view}/>
         </div>
     )
     }
