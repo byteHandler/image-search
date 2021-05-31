@@ -2,7 +2,7 @@ import React from 'react';
 class PageButtonComponent extends React.Component{
     constructor(props){
         super(props)
-        this.state = {buttonTexts : props.buttonTexts,clickedButtonIndex:props.clickedButtonIndex,maxButtons:this.props.maxButtons}
+        this.state = {buttonTexts : props.buttonTexts,clickedButtonIndex:props.clickedButtonIndex,maxButtons:this.props.maxButtons,inView:false}
     }
     onClickPrev=()=>{
         this.props.changeImageList(this.state.clickedButtonIndex)
@@ -37,7 +37,7 @@ class PageButtonComponent extends React.Component{
             )
         })
         return(
-            <div>
+            <div style={this.state.inView ? {marginTop:'5px'}:{display:'none'}}>
                 <div className="fluid ui icon buttons"style={{marginBottom:"5px"}}>
                     {buttons}
                 </div> 
