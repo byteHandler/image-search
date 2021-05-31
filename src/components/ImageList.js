@@ -44,6 +44,7 @@ class ImageList extends React.Component{
                                 <div className="meta">
                                     <i className="thumbs up outline icon"/> {image.likes} <br></br>
                                     <i className="arrow alternate circle down outline icon"></i> {image.downloads} <br></br>
+                                    <i className="expand icon"/> {image.imageWidth}x{image.imageHeight}<br></br>
                                     <button onClick={()=>window.location.href=image.largeImageURL} style={{marginTop:'3px'}} className="ui primary basic button">
                                         Download
                                     </button>
