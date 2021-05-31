@@ -56,6 +56,29 @@ class App extends React.Component{
             <ButtonComponent getnoResults={this.noResults} onGridClick={this.onGridClick} onListClick={this.onListClick} ref={this.buttonComponentRef} defaultButton='grid'/>
             <ImageList ref={this.imageListRef} searchInputRef={this.searchInputRef}   images={this.state.images} inputValue={this.state.inputValue} view = {this.state.view}/>
             <PageButtonComponent getnoResults={this.noResults} maxButtons= {7} ref={this.pageButtonComponentRef} changeImageList={this.changeImageList} buttonTexts={[1,2,3]} clickedButtonIndex={0} />
+            <h6 className="ui bottom attached header">
+                <a href="https://pixabay.com/" style={{
+                    margin:'0px 15px 5px 0px',
+                    fontSize:'12px',
+                    lineHeight:0.0001,
+                    color:'#555',
+                    display:'block',
+                    float:'left',
+                }}>
+                    <i style={{
+                        display:'block',
+                        width:'68px',
+                        overflow:'hidden'
+                    }}>
+                        <img src="https://pixabay.com/static/img/logo.svg" 
+                        style={{
+                            width:'60px',
+                            marginBottom:'10px'
+                        }}/>
+                    </i>
+                </a>
+                Images fetched from Pixabay API
+            </h6>
         </div>
     )
     }
