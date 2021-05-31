@@ -13,19 +13,18 @@ class PageButtonComponent extends React.Component{
         this.setState({clickedButtonIndex:this.state.clickedButtonIndex+1})
     }
     render(){
-        console.log("clickedButtonIndex :"+this.state.clickedButtonIndex)
-        const startIndex = Math.max((this.state.clickedButtonIndex-(Math.floor(this.state.maxButtons/2))),0)
-        console.log("start index : "+startIndex)
+        //console.log("clickedButtonIndex :"+this.state.clickedButtonIndex)
+        let startIndex = Math.max((this.state.clickedButtonIndex-(Math.floor(this.state.maxButtons/2))),0)
+        //console.log("start index : "+startIndex)
         let endIndex = Math.min(startIndex+this.state.maxButtons,(this.state.buttonTexts.length)) 
-        console.log("end index :"+endIndex)
+        //console.log("end index :"+endIndex)
         if(startIndex===0){
             endIndex =  Math.min((this.state.maxButtons),(this.state.buttonTexts.length)) 
         }
-        /*if(endIndex- startIndex < this.state.maxButtons)  {
-            const temp = this.state.maxButtons - (endIndex-startIndex)
-            endIndex = Math.min(temp,this.state.buttonTexts.length)
-
-        }*/
+        if(endIndex- startIndex < this.state.maxButtons)  {
+            startIndex = Math.min((startIndex-(this.state.buttonTexts.length-(endIndex-startIndex))),0)
+            //console.log("updated start index : ",startIndex)
+        }
         const buttons = this.state.buttonTexts.slice(startIndex,endIndex).map((text,i)=>{
             if(this.state.clickedButtonIndex ===(Number(text)-1)){
                 return (
