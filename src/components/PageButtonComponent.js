@@ -12,6 +12,9 @@ class PageButtonComponent extends React.Component{
         this.props.changeImageList(this.state.clickedButtonIndex+2)
         this.setState({clickedButtonIndex:this.state.clickedButtonIndex+1})
     }
+    newFunction(){
+        
+    }
     render(){
         //console.log("clickedButtonIndex :"+this.state.clickedButtonIndex)
         let startIndex = Math.max((this.state.clickedButtonIndex-(Math.floor(this.state.maxButtons/2)))+1,0)

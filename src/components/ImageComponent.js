@@ -17,7 +17,6 @@ class ImageComponent extends React.Component{
                     onLoad = {()=>{
                         this.setState({loaded:true});
                         this.props.addLoadCount();
-                    
                 }}
                     className="ui fluid image"
                     alt ="profile-pic"
