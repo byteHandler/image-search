@@ -66,7 +66,7 @@ class App extends React.Component{
     return (
         <div style={{position:"relative"}}>
         
-            <div style={{height:"40vh",position:"relative"}} ref={this.vantaRef}>
+            <div style={{height:"300px",position:"relative"}} ref={this.vantaRef}>
             <div  className="ui huge header" style={{textAlign:"center",paddingLeft:'auto',paddingRight:'auto',paddingTop:'40px',fontSize:'40px',color:"white"}}>Image Search</div>
             <SearchInput ref={this.searchInputRef}  onSearchSubmit={this.onSearchSubmit} inputValue = {this.state.inputValue} loading='category'/>
             <ButtonComponent color={this.color} getnoResults={this.noResults} onGridClick={this.onGridClick} onListClick={this.onListClick} ref={this.buttonComponentRef} defaultButton='grid'/>

@@ -23,14 +23,14 @@ class SearchInput extends React.Component{
                     borderRightStyle:"solid",
                     fontSize:"30px",
                     marginRight:"2px",
-                    height:'8vh',
-                    width:"40vh",
+                    height:'10px',
+                    width:"300px",
                     borderBlockWidth:"3px",
                     textDecorationThickness:"3px",
                     borderBlockColor:"white",
                     color:"white",
                     backgroundColor:"transparent"}} 
-                    
+
                     className="prompt" type="text" placeholder=""/>
                 <i className="inverted search icon"></i>
             </div>

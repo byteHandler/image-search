@@ -18,7 +18,7 @@ class MainApp extends React.Component{
     }
     render(){
         return(
-                    <div style={{height:'100vh',width:'100%'}} ref={this.vantaRef}>
+                    <div style={{height:'100vh',width:'100%',position:"relative"}} ref={this.vantaRef}>
                             <App/>
                     </div>      
         )
