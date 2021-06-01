@@ -25,7 +25,7 @@ class PageButtonComponent extends React.Component{
         const buttons = this.state.buttonTexts.slice(startIndex,endIndex).map((text,i)=>{
             if(this.state.clickedButtonIndex ===(Number(text)-1)){
                 return (
-                    <button key = {i} style={{marginLeft:'2px',marginRight:'2px',width:"2px"}} className="ui blue button">{text}</button>
+                    <button key = {i} style={{marginLeft:'2px',marginRight:'2px',width:"2px"}} className={`ui ${this.props.color} button`}>{text}</button>
                     )
             }
             return (
