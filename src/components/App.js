@@ -28,11 +28,11 @@ class App extends React.Component{
     }
 
     onGridClick = ()=>{
-        this.buttonComponentRef.current.setState({gridButton:'blue',listButton:'secondary basic'})
+        this.buttonComponentRef.current.setState({gridButton:'inverted pink basic',listButton:'inverted basic'})
         this.imageListRef.current.setState({view:'grid'})
     }
     onListClick = ()=>{
-        this.buttonComponentRef.current.setState({gridButton:'secondary basic',listButton:'blue'})
+        this.buttonComponentRef.current.setState({gridButton:'inverted basic',listButton:'inverted pink basic'})
         this.imageListRef.current.setState({view:'list'})
     }
     onSearchSubmit= async (entry)=>{
@@ -67,7 +67,7 @@ class App extends React.Component{
             <div style={{height:"40vh",position:"relative"}} ref={this.vantaRef}>
             <div  className="ui huge header" style={{textAlign:"center",paddingLeft:'auto',paddingRight:'auto',paddingTop:'40px',fontSize:'40px',color:"white"}}>Image Search</div>
             <SearchInput ref={this.searchInputRef}  onSearchSubmit={this.onSearchSubmit} inputValue = {this.state.inputValue} loading='category'/>
-            <ButtonComponent getnoResults={this.noResults} onGridClick={this.onGridClick} onListClick={this.onListClick} ref={this.buttonComponentRef} defaultButton='grid'/>
+            <ButtonComponent color="pink" getnoResults={this.noResults} onGridClick={this.onGridClick} onListClick={this.onListClick} ref={this.buttonComponentRef} defaultButton='grid'/>
             </div>
             <div className="ui container" style={{marginTop:"30px"}}>
             <ImageList ref={this.imageListRef} searchInputRef={this.searchInputRef}   images={this.state.images} inputValue={this.state.inputValue} view = {this.state.view}/>
