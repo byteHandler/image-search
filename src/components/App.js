@@ -13,17 +13,13 @@ class App extends React.Component{
         this.imageListRef = React.createRef();
         this.buttonComponentRef = React.createRef();
         this.pageButtonComponentRef = React.createRef();
-        this.vantaRef = React.createRef();
+
     }
 
     getnoResults(){
         return this.noResults;
     }
-    componentDidMount(){
-        this.vantaEffect = BIRDS({
-            el:this.vantaRef.current
-        })
-    }
+
     onGridClick = ()=>{
         this.buttonComponentRef.current.setState({gridButton:'blue',listButton:'secondary basic'})
         this.imageListRef.current.setState({view:'grid'})
@@ -60,10 +56,8 @@ class App extends React.Component{
     render(){
     return (
         <div className="ui container" style={{marginLeft:"30px"}}>
-            <div  ref={this.vantaRef}>
-            <div  className="ui huge header" style={{marginTop:'40px',marginLeft:'auto',marginRight:'auto',color:"white"}}>Image Search</div>
+            <div  className="ui huge header" style={{marginTop:'4px',marginLeft:'auto',marginRight:'auto',color:"white"}}>Image Search</div>
             <SearchInput style={{marginLeft:'30px',marginRight:'30px'}} ref={this.searchInputRef}  onSearchSubmit={this.onSearchSubmit} inputValue = {this.state.inputValue} loading='category'/>
-            </div>
             <ButtonComponent getnoResults={this.noResults} onGridClick={this.onGridClick} onListClick={this.onListClick} ref={this.buttonComponentRef} defaultButton='grid'/>
             <ImageList ref={this.imageListRef} searchInputRef={this.searchInputRef}   images={this.state.images} inputValue={this.state.inputValue} view = {this.state.view}/>
             <PageButtonComponent getnoResults={this.noResults} maxButtons= {7} ref={this.pageButtonComponentRef} changeImageList={this.changeImageList} buttonTexts={[1,2,3]} clickedButtonIndex={0} />
