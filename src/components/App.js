@@ -13,9 +13,16 @@ class App extends React.Component{
         this.imageListRef = React.createRef();
         this.buttonComponentRef = React.createRef();
         this.pageButtonComponentRef = React.createRef();
-
+        this.vantaRef = React.createRef();
     }
-
+    componentWillUnmount(){
+        if (this.vantaEffect) this.vantaEffect.destroy();
+    }
+    componentDidMount(){
+        this.vantaEffect = BIRDS({
+            el:this.vantaRef.current
+        })
+    }
     getnoResults(){
         return this.noResults;
     }
@@ -55,12 +62,16 @@ class App extends React.Component{
     }
     render(){
     return (
-        <div className="ui container" style={{marginLeft:"30px"}}>
-            <div  className="ui huge header" style={{fontSize:'70px',marginTop:'4px',marginLeft:'auto',marginRight:'auto',color:"white"}}>Image Search</div>
-            <SearchInput style={{marginLeft:'30px',marginRight:'30px'}} ref={this.searchInputRef}  onSearchSubmit={this.onSearchSubmit} inputValue = {this.state.inputValue} loading='category'/>
+        <div style={{position:"relative"}}>
+        
+            <div style={{height:"40vh",position:"relative"}} ref={this.vantaRef}>
+            <div  className="ui huge header" style={{textAlign:"center",paddingLeft:'auto',paddingRight:'auto',paddingTop:'40px',fontSize:'40px',color:"white"}}>Image Search</div>
+            <SearchInput ref={this.searchInputRef}  onSearchSubmit={this.onSearchSubmit} inputValue = {this.state.inputValue} loading='category'/>
             <ButtonComponent getnoResults={this.noResults} onGridClick={this.onGridClick} onListClick={this.onListClick} ref={this.buttonComponentRef} defaultButton='grid'/>
+            </div>
+            <div className="ui container" style={{marginTop:"30px"}}>
             <ImageList ref={this.imageListRef} searchInputRef={this.searchInputRef}   images={this.state.images} inputValue={this.state.inputValue} view = {this.state.view}/>
-            <PageButtonComponent getnoResults={this.noResults} maxButtons= {7} ref={this.pageButtonComponentRef} changeImageList={this.changeImageList} buttonTexts={[1,2,3]} clickedButtonIndex={0} />
+            <PageButtonComponent getnoResults={this.noResults} maxButtons= {10} ref={this.pageButtonComponentRef} changeImageList={this.changeImageList} buttonTexts={[1,2,3]} clickedButtonIndex={0} />
             <h6 className="ui bottom attached header">
                 <a href="https://pixabay.com/" style={{
                     margin:'0px 15px 5px 0px',
@@ -86,6 +97,7 @@ class App extends React.Component{
                 </a>
                 Images fetched from Pixabay API
             </h6>
+        </div>
         </div>
     )
     }

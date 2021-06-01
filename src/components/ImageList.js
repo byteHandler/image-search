@@ -60,9 +60,13 @@ class ImageList extends React.Component{
         if(this.state.images.length > 0){
             if(this.state.view === 'grid'){
             return (
-                <div className="ui grid">
+
+                    <div className="scrolling content">
+                <div style={{overflowY:"auto",whiteSpace:"nowrap"}}  className="features ui grid noMargin">
                    {img}
                 </div>
+                </div>
+
             )}
             else{
                 return(
