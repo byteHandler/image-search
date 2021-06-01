@@ -56,7 +56,7 @@ class App extends React.Component{
     render(){
     return (
         <div className="ui container" style={{marginLeft:"30px"}}>
-            <div  className="ui huge header" style={{marginTop:'4px',marginLeft:'auto',marginRight:'auto',color:"white"}}>Image Search</div>
+            <div  className="ui huge header" style={{fontSize:'100px',marginTop:'4px',marginLeft:'auto',marginRight:'auto',color:"white"}}>Image Search</div>
             <SearchInput style={{marginLeft:'30px',marginRight:'30px'}} ref={this.searchInputRef}  onSearchSubmit={this.onSearchSubmit} inputValue = {this.state.inputValue} loading='category'/>
             <ButtonComponent getnoResults={this.noResults} onGridClick={this.onGridClick} onListClick={this.onListClick} ref={this.buttonComponentRef} defaultButton='grid'/>
             <ImageList ref={this.imageListRef} searchInputRef={this.searchInputRef}   images={this.state.images} inputValue={this.state.inputValue} view = {this.state.view}/>
