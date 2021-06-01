@@ -7,8 +7,8 @@ class ButtonComponent extends React.Component{
     render(){
         return (
             <div style={this.state.inView ? {marginBottom:'13px',zIndex:1}:{display:'none'}} className="ui fluid icon buttons"> 
-                <button onClick={this.props.onGridClick} className={`ui ${this.state.gridButton} button`}><i className="grid layout icon"></i></button>
-                <button onClick={this.props.onListClick} className={`ui ${this.state.listButton} button`}><i className="list layout icon"></i></button>
+                <button onClick={this.props.onGridClick} className={`ui inverted ${this.state.gridButton} button`}><i className="grid layout icon"></i></button>
+                <button onClick={this.props.onListClick} className={`ui inverted ${this.state.listButton} button`}><i className="list layout icon"></i></button>
             </div>
         )
     }

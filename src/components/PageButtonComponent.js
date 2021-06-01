@@ -25,14 +25,14 @@ class PageButtonComponent extends React.Component{
         const buttons = this.state.buttonTexts.slice(startIndex,endIndex).map((text,i)=>{
             if(this.state.clickedButtonIndex ===(Number(text)-1)){
                 return (
-                    <button key = {i} style={{marginLeft:'2px',marginRight:'2px',width:"2px"}} className="ui blue button">{text}</button>
+                    <button key = {i} style={{marginLeft:'2px',marginRight:'2px',width:"2px"}} className="ui inverted blue button">{text}</button>
                     )
             }
             return (
             <button key = {i} style={{marginLeft:'2px',marginRight:'2px',width:"2px"}} onClick = {()=>{
                 this.setState({clickedButtonIndex:Number(text)-1})
                 this.props.changeImageList(Number(text))
-        }}className="ui secondary basic button">{text}</button>
+        }}className="ui inverted secondary basic button">{text}</button>
             )
         })
         return(

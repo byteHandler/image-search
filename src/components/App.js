@@ -4,7 +4,7 @@ import axios from 'axios';
 import ImageList from './ImageList.js';
 import ButtonComponent from './ButtonsComponent.js';
 import PageButtonComponent from './PageButtonComponent.js'
-
+import BIRDS from '/home/nikhils1/React-Apps/image-search/node_modules/vanta/dist/vanta.waves.min.js'
 class App extends React.Component{
     constructor(props){
         super(props)
@@ -26,6 +26,8 @@ class App extends React.Component{
         this.buttonComponentRef.current.setState({gridButton:'secondary basic',listButton:'blue'})
         this.imageListRef.current.setState({view:'list'})
     }
+
+
     onSearchSubmit= async (entry)=>{
         //console.log(entry)
         const response = await axios.get(`https://pixabay.com/api/?key=21844549-840acc6adaa37fac4e1186c8f&q=${entry.replace(" ","+")}&image_type=photo`)
@@ -53,11 +55,13 @@ class App extends React.Component{
     }
     render(){
     return (
-        <div id="mainContainer" className="ui container" style={{marginTop:'30px',height:"100%"}}>
-            <div  className="ui huge header" style={{marginLeft:'auto',marginRight:'auto'}}>Image Search</div>
+        <div id="mainContainer" className="fluid ui container" style={{marginLeft:"30px" ,height:"100%"}}>
+            <div  className="ui huge header" style={{marginTop:'40px',marginLeft:'auto',marginRight:'auto',color:"white"}}>Image Search</div>
             <SearchInput ref={this.searchInputRef}  onSearchSubmit={this.onSearchSubmit} inputValue = {this.state.inputValue} loading='category'/>
             <ButtonComponent getnoResults={this.noResults} onGridClick={this.onGridClick} onListClick={this.onListClick} ref={this.buttonComponentRef} defaultButton='grid'/>
+            <div className="fluid ui card">
             <ImageList ref={this.imageListRef} searchInputRef={this.searchInputRef}   images={this.state.images} inputValue={this.state.inputValue} view = {this.state.view}/>
+            </div>
             <PageButtonComponent getnoResults={this.noResults} maxButtons= {7} ref={this.pageButtonComponentRef} changeImageList={this.changeImageList} buttonTexts={[1,2,3]} clickedButtonIndex={0} />
             <h6 className="ui bottom attached header">
                 <a href="https://pixabay.com/" style={{
