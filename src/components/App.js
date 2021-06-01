@@ -4,6 +4,7 @@ import axios from 'axios';
 import ImageList from './ImageList.js';
 import ButtonComponent from './ButtonsComponent.js';
 import PageButtonComponent from './PageButtonComponent.js'
+
 class App extends React.Component{
     constructor(props){
         super(props)
@@ -13,6 +14,7 @@ class App extends React.Component{
         this.buttonComponentRef = React.createRef();
         this.pageButtonComponentRef = React.createRef();
     }
+
     getnoResults(){
         return this.noResults;
     }
@@ -27,8 +29,9 @@ class App extends React.Component{
     onSearchSubmit= async (entry)=>{
         //console.log(entry)
         const response = await axios.get(`https://pixabay.com/api/?key=21844549-840acc6adaa37fac4e1186c8f&q=${entry.replace(" ","+")}&image_type=photo`)
-        //console.log(response)
+        console.log(response)
         this.imageListRef.current.setState({images:response.data.hits,inputValue:entry})
+
         if(response.data.hits.length>0){
             const pageSize = 20; // Update whenever needed
             const nPages = Math.floor(response.data.total/pageSize) + 1
@@ -50,7 +53,7 @@ class App extends React.Component{
     }
     render(){
     return (
-        <div className="ui container" style={{marginTop:'30px',height:"100%"}}>
+        <div id="mainContainer" className="ui container" style={{marginTop:'30px',height:"100%"}}>
             <div  className="ui huge header" style={{marginLeft:'auto',marginRight:'auto'}}>Image Search</div>
             <SearchInput ref={this.searchInputRef}  onSearchSubmit={this.onSearchSubmit} inputValue = {this.state.inputValue} loading='category'/>
             <ButtonComponent getnoResults={this.noResults} onGridClick={this.onGridClick} onListClick={this.onListClick} ref={this.buttonComponentRef} defaultButton='grid'/>
