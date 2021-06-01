@@ -14,7 +14,7 @@ class App extends React.Component{
         this.buttonComponentRef = React.createRef();
         this.pageButtonComponentRef = React.createRef();
         this.vantaRef = React.createRef();
-        this.color = "pink";
+        this.color = "orange";
     }
     componentWillUnmount(){
         if (this.vantaEffect) this.vantaEffect.destroy();
