@@ -21,7 +21,8 @@ class App extends React.Component{
     }
     componentDidMount(){
         this.vantaEffect = BIRDS({
-            el:this.vantaRef.current
+            el:this.vantaRef.current,
+            birdSize : "1.5"
         })
     }
     getnoResults(){
