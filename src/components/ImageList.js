@@ -5,7 +5,6 @@ class ImageList extends React.Component{
         super(props)
         this.loadCount = 0;
         this.state = {images : [],view:props.view,inputValue:""}
-        this.sIR = props.searchInputRef;
     }
     addLoadCount=()=>{
         this.loadCount += 1;
@@ -23,17 +22,17 @@ class ImageList extends React.Component{
         window.location.href = link;
       }
     render(){
-        //console.log(this.props)
         this.loadCount=0; // update load count once it is rendered (rendered only once on each submit)
         const img = this.state.images.map((image)=>{   
             if (this.state.view ==='grid'){
-            return (
-                <div className="eight wide column" key = {image.id}>
-                <div className = "ui fluid card" >
-                <ImageComponent addLoadCount= {this.addLoadCount} source={image.largeImageURL} width={image.previewWidth} height={image.previewHeight}/>
-                </div>
-                </div>
-            )}
+                return (
+                    <div className="eight wide column" key = {image.id}>
+                        <div className = "ui fluid card" >
+                            <ImageComponent addLoadCount= {this.addLoadCount} source={image.largeImageURL} width={image.previewWidth} height={image.previewHeight}/>
+                        </div>
+                    </div>
+                )
+            }
             else{
                 return (
                     <div className="item" key={image.id}>
@@ -60,12 +59,10 @@ class ImageList extends React.Component{
         if(this.state.images.length > 0){
             if(this.state.view === 'grid'){
             return (
-
-                    <div className="scrolling content">
-                <div style={{overflowY:"auto",whiteSpace:"nowrap"}}  className="features ui grid noMargin">
+                <div className="ui grid">
                    {img}
                 </div>
-                </div>
+
 
             )}
             else{
