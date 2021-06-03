@@ -17,7 +17,6 @@ class ImageList extends React.Component{
         if(nextState.images.length===0){
             nextProps.searchInputRef.current.setState({loading:'category'});
         }
-        nextProps.buttonComponentRef.current.setState({inView:false});
         return true;
     }
     downloadFile = (link) => {
