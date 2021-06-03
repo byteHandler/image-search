@@ -34,6 +34,17 @@ class ImageList extends React.Component{
                 )
             }
             else{
+                const tags = image.tags.split(',').map((tag,index)=>{
+                    return(
+                        <div key={index} className="item">
+                            <div className="content">
+                                <div className="header">
+                                    {tag}
+                                </div>
+                            </div>
+                        </div>
+                    )
+                });
                 return (
                     <div className="item" key={image.id}>
                         <div className="ui fluid card">
@@ -44,6 +55,10 @@ class ImageList extends React.Component{
                                     <i className="thumbs up outline icon"/> {image.likes} <br></br>
                                     <i className="arrow alternate circle down outline icon"></i> {image.downloads} <br></br>
                                     <i className="expand icon"/> {image.imageWidth}x{image.imageHeight}<br></br>
+                                    <div className="ui mini horizontal divided list">
+                                        Tags : 
+                                        {tags}
+                                    </div><br></br>
                                     <button onClick={()=>window.location.href=image.imageURL} style={{marginTop:'3px'}} className="ui primary basic button">
                                         Download
                                     </button>

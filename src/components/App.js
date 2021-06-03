@@ -40,7 +40,7 @@ class App extends React.Component{
     }
     onSearchSubmit= async (entry)=>{
         const response = await axios.get(`https://pixabay.com/api/?key=21844549-840acc6adaa37fac4e1186c8f&q=${entry.replace(" ","+")}&image_type=photo`)
-        console.log(response)
+        //console.log(response)
         this.imageListRef.current.setState({images:response.data.hits,inputValue:entry})
         if(response.data.hits.length>0){
             const pageSize = 20; // Update whenever needed
