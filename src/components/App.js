@@ -53,6 +53,7 @@ class App extends React.Component{
             this.pageButtonComponentRef.current.setState({inView:false})
             this.buttonComponentRef.current.setState({inView:false})
         }
+        this.buttonComponentRef.current.setState({inView:false})
         //response.data.total is our variable to decide the number
 
     }
@@ -71,7 +72,7 @@ class App extends React.Component{
                     <ButtonComponent color={this.color} getnoResults={this.noResults} onGridClick={this.onGridClick} onListClick={this.onListClick} ref={this.buttonComponentRef} defaultButton='grid'/>
                 </div>
                 <div className="ui container" style={{marginTop:"30px"}}>
-                    <ImageList ref={this.imageListRef} searchInputRef={this.searchInputRef}   images={this.state.images} inputValue={this.state.inputValue} view = {this.state.view}/>
+                    <ImageList ref={this.imageListRef} buttonComponentRef={this.buttonComponentRef} searchInputRef={this.searchInputRef}   images={this.state.images} inputValue={this.state.inputValue} view = {this.state.view}/>
                     <PageButtonComponent color={this.color} getnoResults={this.noResults} maxButtons= {10} ref={this.pageButtonComponentRef} changeImageList={this.changeImageList} buttonTexts={[1,2,3]} clickedButtonIndex={0} />
                     <h6 className="ui bottom attached header">
                         <a href="https://pixabay.com/" style={{

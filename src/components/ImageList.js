@@ -10,12 +10,14 @@ class ImageList extends React.Component{
         this.loadCount += 1;
         if(this.loadCount === this.state.images.length){
             this.props.searchInputRef.current.setState({loading:'category'})
+            this.props.buttonComponentRef.current.setState({inView:true})
         }
     }
     shouldComponentUpdate(nextProps, nextState){
         if(nextState.images.length===0){
             nextProps.searchInputRef.current.setState({loading:'category'});
         }
+        nextProps.buttonComponentRef.current.setState({inView:false});
         return true;
     }
     downloadFile = (link) => {
