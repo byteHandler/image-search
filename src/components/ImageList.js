@@ -19,8 +19,9 @@ class ImageList extends React.Component{
         }
         return true;
     }
-    downloadFile = (link) => {
-        window.location.href = link;
+    downloadFile = (url) => {
+        const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+        if (newWindow) newWindow.opener = null
       }
     render(){
         this.loadCount=0; // update load count once it is rendered (rendered only once on each submit)
@@ -60,7 +61,7 @@ class ImageList extends React.Component{
                                         Tags : 
                                         {tags}
                                     </div><br></br>
-                                    <button onClick={()=>window.location.href=image.imageURL} style={{marginTop:'3px'}} className="ui primary basic button">
+                                    <button onClick={()=>{this.downloadFile(image.imageURL)}} style={{marginTop:'3px'}} className="ui primary basic button">
                                         Download
                                     </button>
                                 </div>
